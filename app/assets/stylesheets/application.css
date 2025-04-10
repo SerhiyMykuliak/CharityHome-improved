@@ -1,0 +1,50 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ *{
+  font-family: "Poppins", sans-serif;
+ }
+
+ .f-roboto{
+  font-family: "Roboto", sans-serif;
+ }
+
+ .mission-icon-box{
+  width: 80px;
+  height: 80px;
+  background-color: #eb5310;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+
+ }
+
+ .mission-icon-box::after{
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: -20px;
+  right: -20px;
+  rotate: calc(45deg);
+  background-color: white;
+ }
+
+ .mission-icon-box:hover{
+  background-color: #333;
+ }

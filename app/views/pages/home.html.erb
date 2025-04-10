@@ -1,0 +1,162 @@
+<section class="hero">
+  <div class="hero-bg relative bg-[url('/assets/hero-bg.jpg')] bg-cover bg-center bg-no-repeat min-h-[640px]">
+    
+    <div class="absolute inset-0 bg-black/40 z-0"></div>
+
+    <div class="container relative z-10 min-h-[640px] mx-auto flex flex-col gap-2.5 justify-center px-[15px]">
+      <h2 class="bg-[#f14b05] uppercase text-white text-[28px] font-[300] w-fit px-1">to feed and educate!</h2>
+      <h1 class="bg-[#262F36] text-4xl uppercase font-extrabold text-white px-1 w-fit">we need your support</h1>
+      <h2 class="bg-white text-[23px] text-[#f14b05] px-2 w-fit">Became a part to chanhe the world</h2>
+
+      <p class="text-white text-[12px] max-w-2xs">Our Company has a long tradition of charitable giving and philanthropy. Lorem impsum dolor sit amet</p>
+
+      <div class="flex gap-3">
+        <%= button_to 'donate now', '/', method: :get, class: 'f-roboto text-[11px] uppercase rounded-full text-white py-[12px] px-[17px] font-bold border-2 border-[#f14b05] bg-[#f14b05] mt-5 cursor-pointer hover:bg-white hover:text-[#f14b05] transition-colors duration-300' %>   
+        <%= button_to 'learn more', '/', method: :get, class: 'f-roboto text-[11px] uppercase rounded-full text-[#f14b05] py-[12px] px-[17px] font-bold border-2 border-[#f14b05] bg-white mt-5 cursor-pointer hover:bg-transparent hover:text-white transition-colors duration-300' %>   
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+
+<section class="call-to-cation text-white">
+  <div class="grid grid-cols-1">
+    <div class="relative group flex justify-center items-center gap-[15px] min-h-[250px] px-10 bg-[url('/assets/call-to-action-1.jpg')] bg-cover bg-center bg-no-repeat">
+
+      <div class="absolute inset-0 bg-[#eb5310]/90 transition-colors duration-300 group-hover:bg-[#c94209]/90 z-0"></div>
+
+      <%= image_tag("coin.png", class: "w-[50px] h-[50px] relative z-10") %>
+      <div class="relative z-10 text-white">
+        <h3 class="f-roboto uppercase text-[20px] font-bold mt-3.5">Donation</h3>
+        <p class="text-4 mt-5">There are many variations of lorem passagei of Lorem Ipsum availabl</p>
+        <%= button_to 'learn more', '/', method: :get, class: 'f-roboto text-[11px] uppercase rounded-full text-white py-[7px] px-[22px] font-bold border-2 border-white bg-transparent mt-5 cursor-pointer hover:bg-white hover:text-[#f14b05] transition-colors duration-300' %>   
+      </div>
+    </div>
+
+    <div class="relative group flex justify-center items-center gap-[15px] min-h-[250px] px-10 bg-[url('/assets/call-to-action-2.jpg')] bg-cover bg-center bg-no-repeat">
+
+      <div class="absolute inset-0 bg-[#fa773de6]/90 transition-colors duration-300 group-hover:bg-[#c94209]/90 z-0"></div>
+
+      <%= image_tag("coin.png", class: "w-[50px] h-[50px] relative z-10") %>
+      <div class="relative z-10 text-white">
+        <h3 class="f-roboto uppercase text-[20px] font-bold mt-3.5">Donation</h3>
+        <p class="text-4 mt-5">There are many variations of lorem passagei of Lorem Ipsum availabl</p>
+        <%= button_to 'learn more', '/', method: :get, class: 'f-roboto text-[11px] uppercase rounded-full text-white py-[7px] px-[22px] font-bold border-2 border-white bg-transparent mt-5 cursor-pointer hover:bg-white hover:text-[#f14b05] transition-colors duration-300' %>   
+      </div>
+    </div>
+
+    <div class="relative group flex justify-center items-center gap-[15px] min-h-[250px] px-10 bg-[url('/assets/call-to-action-3.jpg')] bg-cover bg-center bg-no-repeat">
+
+      <div class="absolute inset-0 bg-[#eb5310]/90 transition-colors duration-300 group-hover:bg-[#c94209]/90 z-0"></div>
+
+      <%= image_tag("coin.png", class: "w-[50px] h-[50px] relative z-10") %>
+      <div class="relative z-10 text-white">
+        <h3 class="f-roboto uppercase text-[20px] font-bold mt-3.5">Donation</h3>
+        <p class="text-4 mt-5">There are many variations of lorem passagei of Lorem Ipsum availabl</p>
+        <%= button_to 'learn more', '/', method: :get, class: 'f-roboto text-[11px] uppercase rounded-full text-white py-[7px] px-[22px] font-bold border-2 border-white bg-transparent mt-5 cursor-pointer hover:bg-white hover:text-[#f14b05] transition-colors duration-300' %>   
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="view-full-gallery px-[15px] text-white py-[55px] bg-[#eb5310]  text-center">
+  <div class="container flex flex-col justify-center items-center">
+    <h3 class="f-roboto text-[28px] pb-4 font-bold">Here will be any kind lorem ipsum heading</h3>
+    <p class="text-base ">There are many variations of passages of Lorem Ipsum available, but the majority have lorem</p>
+
+    <%= button_to 'view full gallery', '/', method: :get, class: 'f-roboto text-[12px] uppercase rounded-full text-black py-[14px] px-[24px] font-bold border-2 border-white bg-white mt-4 mb-2 cursor-pointer hover:bg-transparent hover:text-white transition-colors duration-300' %>   
+  
+  </div>
+
+</section>
+
+<section class="our-mission">
+  <div class="container px-[15px] mt-22.5 mb-2.5 flex flex-col justify-center items-center our-mission">
+    <h2 class="text-[35px] font-bold mb-4">Our Mission</h2>
+    <p class="text-4 text-[#747474] mb-5 text-center">Lorem ipsum is a dummy text it will use for subtitle here</p>
+
+    <div class="grid grid-cols-1">
+      <div class="flex flex-col justify-center items-center h-[300px]">
+        <div class="mission-icon-box mb-6">
+          <%= image_tag("read.png", class: "w-11 h-11") %>
+        </div>
+        <div class="content text-center">
+          <h3 class="text-2xl mb-4 font-bold f-roboto">Charity For Education</h3>
+          <p class="text-[14px] text-[#9C9C9C] mb-4">There are many variations of lorem passagei of Lorem Ipsum available but the majority have</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col justify-center items-center h-[340px]">
+        <div class="mission-icon-box mb-6">
+          <%= image_tag("read.png", class: "w-11 h-11") %>
+        </div>
+        <div class="content text-center">
+          <h3 class="text-2xl mb-4 font-bold f-roboto">Charity For Education</h3>
+          <p class="text-[14px] text-[#9C9C9C] mb-4">There are many variations of lorem passagei of Lorem Ipsum available but the majority have</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col justify-center items-center h-[340px]">
+        <div class="mission-icon-box mb-6">
+          <%= image_tag("read.png", class: "w-11 h-11") %>
+        </div>
+        <div class="content text-center">
+          <h3 class="text-2xl mb-4 font-bold f-roboto">Charity For Education</h3>
+          <p class="text-[14px] text-[#9C9C9C] mb-4">There are many variations of lorem passagei of Lorem Ipsum available but the majority have</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col justify-center items-center h-[340px]">
+        <div class="mission-icon-box mb-6">
+          <%= image_tag("read.png", class: "w-11 h-11") %>
+        </div>
+        <div class="content text-center">
+          <h3 class="text-2xl mb-4 font-bold f-roboto">Charity For Education</h3>
+          <p class="text-[14px] text-[#9C9C9C] mb-4">There are many variations of lorem passagei of Lorem Ipsum available but the majority have</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fact-counter py-[50px] bg-[#eb5310] text-center text-white">
+  <div class="container px-[15px]">
+    <h2 class="text-4xl f-roboto font-light mb-[27px]">We are served since <span class="font-medium">35 years</span> to helpless people with trust and we are happy</h2>
+    <%= button_to 'be a part of us', '/', method: :get, class: 'f-roboto text-[12px] uppercase rounded-full text-[#f14b05] py-[7px] px-[35px] font-bold border-2 border-white bg-white mb-9 cursor-pointer hover:bg-[#f14b05] hover:text-white transition-colors duration-300' %>   
+  </div>
+
+  <div class="flex flex-wrap justify-center">
+    <div class="fact flex flex-col justify-center items-center min-w-[70px] mt-[30px] px-[35px]">
+      <div class="icon-box mb-4 w-[100px] h-[100px] border-2 border-white rounded-full flex justify-center items-center">
+        <%= image_tag("rewards.png", class: "icon w-[50px] h-[50px]") %>
+      </div>
+
+      <div class="timer text-5xl font-medium">369</div>
+      <p class="text-xs">Total Awards</p>
+    </div>
+
+        <div class="fact flex flex-col justify-center items-center min-w-[70px] mt-[30px] px-[35px]">
+      <div class="icon-box mb-4 w-[100px] h-[100px] border-2 border-white rounded-full flex justify-center items-center">
+        <%= image_tag("rewards.png", class: "icon w-[50px] h-[50px]") %>
+      </div>
+
+      <div class="timer text-5xl font-medium">369</div>
+      <p class="text-xs">Total Awards</p>
+    </div>
+
+        <div class="fact flex flex-col justify-center items-center min-w-[70px] mt-[30px] px-[35px]">
+      <div class="icon-box mb-4 w-[100px] h-[100px] border-2 border-white rounded-full flex justify-center items-center">
+        <%= image_tag("rewards.png", class: "icon w-[50px] h-[50px]") %>
+      </div>
+
+      <div class="timer text-5xl font-medium">369</div>
+      <p class="text-xs">Total Awards</p>
+    </div>
+
+  </div>
+
+</section>
+
+
