@@ -44,10 +44,9 @@
 
     <div class="flex mainmenu min-w-full bg-[#262F36] h-[74px] border-b-4 border-[#f14b05] sticky top-0 z-100">
       <div class="container flex justify-between mx-auto px-[15px] h-[70px] content-center items-center">
-        
         <div data-controller="menu-toggle">
           
-          <div data-action="click->menu-toggle#toggle" class="mobile-nav-toggle w-10 h-10 bg-[#f14b05] flex justify-center items-center"> 
+          <div data-action="click->menu-toggle#toggle" class="mobile-nav-toggle w-10 h-10 bg-[#f14b05] flex justify-center items-center cursor-pointer"> 
             <%= image_tag("burger-bar.png", class: "w-[20] h-[22]")%>
           </div>
 
@@ -56,8 +55,8 @@
               <%= image_tag("dark-logo.png", alt: "", class:"mb-[100px] px-[35px] py-[25px]") %>
               
               <ul>
-                <li class="border-t-1 border-gray-700 px-[25px] py-[10px]"><a href="#" class=" text-[15px] font-medium uppercase">Home</a></li>
-                <li class="border-t-1 border-gray-700 px-[25px] py-[10px]"><a href="#" class=" text-[15px] font-medium uppercase">Home</a></li>
+                <li class="border-t-1 border-gray-700 px-[25px] py-[10px]"> <%= link_to 'Home', root_path, class: "text-[15px] font-medium uppercase" %> </li>
+                <li class="border-t-1 border-gray-700 px-[25px] py-[10px]"> <%= link_to 'Causes', causes_path, class: "text-[15px] font-medium uppercase" %> </li>
                 <li class="border-t-1 border-gray-700 px-[25px] py-[10px]"><a href="#" class=" text-[15px] font-medium uppercase">Home</a></li>
               </ul>
               
