@@ -1,13 +1,51 @@
-<% content_for :title, "Showing cause" %>
 
-<div class="md:w-2/3 w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
-  <% end %>
 
-  <h1 class="font-bold text-4xl">Showing cause</h1>
+<%= render 'layouts/page_title', title: @cause.title %>
 
-  <%= render @cause %>
+<div class="container pt-[90px] pb-[40px] mx-auto">
+  <div class="grid">
+    <div class="col-span-12 px-[15px]">
+      <%= image_tag @cause.image, class: "w-full block" %>
+
+      <div class="content-box mt-[27px] grid">
+        <div class="data-box mb-[15px] mr-[25px] flex flex-col col-span-12 leading-4 text-center justify-center w-[90px] h-[70px] text-white bg-[#EB5310] py-15px text-base">
+          <span class="text-2xl"> <%= @cause.created_at.strftime("%d") %> </span>
+          <span class="uppercase"> <%= @cause.created_at.strftime("%b") %> </span>
+        </div>
+        
+        <div class="col-span-12">
+          <p class="text-[#9C9C9C] text-sm mb-[16px] leading-[26px]"> <%= @cause.short_description %> </p>
+
+          <div class="campaign-summary flex flex-wrap my-[28px] px-[14px] text-sm text-[#9c9c9c] border-1 border-[#e6e6e6]">
+            <div class="campaign-raised py-[14px] w-1/2 flex flex-col">
+              <span class="text-base text-[#F65024] font-bold"> <%= ((@cause.collected_amount / @cause.goal_amount) * 100).round %>% </span>
+              <p>Raised</p>
+            </div>
+
+            <div class="campaign-sum py-[14px] w-1/2 flex flex-col">
+              <span class="text-base text-[#F65024] font-bold"> $<%= @cause.collected_amount %> </span>
+              <p>donated of <span class="text-base text-[#222222]"> $<%= @cause.goal_amount %> </span> goal</p>
+            </div>
+
+            <div class="line h-[1px] w-full bg-[#E6E6E6]"></div>
+
+            <div class="campaign-donors py-[14px] w-1/2 flex flex-col">
+              <p><span class="text-base text-[#F65024] font-bold">1</span> Donors</p>
+            </div>
+
+            <div class="campaign-time-left py-[14px] w-1/2 flex flex-col">
+              <p>Campaign has ended</p>
+            </div>
+          </div>
+
+          <p class="text-[#9C9C9C] text-sm mb-[16px] leading-[26px]"> <%= @cause.description %> </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-bar">
+    </div>
+  </div>
 
   <%= link_to "Edit this cause", edit_cause_path(@cause), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
   <%= link_to "Back to causes", causes_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
