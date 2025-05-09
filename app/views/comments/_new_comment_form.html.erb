@@ -1,0 +1,26 @@
+<% comment ||= Comment.new %>
+
+<div class="post-comment mt-[20px] pb-[50px] mb-[60px] border-b-1 border-[#F1F1F1]">
+  <h2 class="f-roboto font-bold text-3xl text-[#23282A] mb-[10px]">Leave A Comment</h2>
+
+  <%= form_with(model: [cause, comment], data: { turbo_frame: "new_comment_form" }) do |f|  %>
+    
+    <% if comment.errors[:username].any? %>
+      <div class="text-red-600 text-xs mt-1">*<%= comment.errors[:username].first %></div>
+    <% end %>
+    <%= f.text_field :username, placeholder: "Name", class: "text-[#495057] w-full h-[60px] border border-[#F0F0F0] outline-none pl-5 mb-5" %>
+
+    <% if comment.errors[:email].any? %>
+      <div class="text-red-600 text-xs mt-1">*<%= comment.errors[:email].first %></div>
+    <% end %>
+    <%= f.text_field :email, placeholder: "Email", class: "text-[#495057] w-full h-[60px] border border-[#F0F0F0] outline-none pl-5 mb-5" %>
+
+    <% if comment.errors[:content].any? %>
+      <div class="text-red-600 text-xs mt-1">*<%= comment.errors[:content].first %></div>
+    <% end %>
+    <%= f.text_area :content, placeholder: "Type Comment here", class: "h-[220px] text-[#495057] w-full h-[60px] border border-[#F0F0F0] outline-none px-[16px] py-[15px] mb-5", maxlength: 1000  %>
+  
+    <%= f.submit 'Post comment', class:"bg-[#f14b05] cursor-pointer text-white text-[12px] border-2 border-[#F14B05] uppercase font-bold f-roboto rounded-full transition-all duration-200 hover:bg-white hover:text-[#f14b05] px-[24px] py-[12px]" %>
+  
+  <% end %>
+</div>
