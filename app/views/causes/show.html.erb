@@ -2,13 +2,18 @@
 
 <%= render 'layouts/page_title', title: @cause.title %>
 
-<div class="container pt-[90px] pb-[40px] mx-auto">
+<div class="container pt-[90px] pb-[40px] mb-[90px] mx-auto">
   <div class="grid">
     <div class="col-span-12 px-[15px]">
+
+      <%= link_to "Edit this cause", edit_cause_path(@cause), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+      <%= link_to "Back to causes", causes_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+      <%= button_to "Destroy this cause", @cause, method: :delete, form_class: "sm:inline-block mt-2 sm:mt-0 sm:ml-2", class: "w-full rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: "Are you sure?" } %>
+
       <%= image_tag @cause.image, class: "w-full block" %>
 
-      <div class="content-box mt-[27px] grid">
-        <div class="data-box mb-[15px] mr-[25px] flex flex-col col-span-12 leading-4 text-center justify-center w-[90px] h-[70px] text-white bg-[#EB5310] py-15px text-base">
+      <div class="content-box mt-[27px] grid border-b-1 border-[#F1F1F1] mb-[60px] pb-[70px]">
+        <div class="data-box mb-[15px] mr-[25px] flex flex-col col-span-12 leading-4 text-center justify-center w-[90px] h-[70px] text-white bg-[#EB5310] py-[15px] text-base">
           <span class="text-2xl"> <%= @cause.created_at.strftime("%d") %> </span>
           <span class="uppercase"> <%= @cause.created_at.strftime("%b") %> </span>
         </div>
@@ -21,7 +26,6 @@
               <span class="text-base text-[#F65024] font-bold"> <%= ((@cause.collected_amount / @cause.goal_amount) * 100).round %>% </span>
               <p>Raised</p>
             </div>
-
             <div class="campaign-sum py-[14px] w-1/2 flex flex-col">
               <span class="text-base text-[#F65024] font-bold"> $<%= @cause.collected_amount %> </span>
               <p>donated of <span class="text-base text-[#222222]"> $<%= @cause.goal_amount %> </span> goal</p>
@@ -32,7 +36,6 @@
             <div class="campaign-donors py-[14px] w-1/2 flex flex-col">
               <p><span class="text-base text-[#F65024] font-bold">1</span> Donors</p>
             </div>
-
             <div class="campaign-time-left py-[14px] w-1/2 flex flex-col">
               <p>Campaign has ended</p>
             </div>
@@ -41,13 +44,19 @@
           <p class="text-[#9C9C9C] text-sm mb-[16px] leading-[26px]"> <%= @cause.description %> </p>
         </div>
       </div>
+
+      <turbo-frame id="new_comment_form">
+        <%= render 'comments/new_comment_form', cause: @cause %>
+      </turbo-frame>
+
+      <h2 class="f-roboto font-bold text-3xl text-[#23282A] mb-[10px]">Comments</h2>
+      <turbo-frame id="comments">
+        <%= render partial: "comments/comment", collection: @comments, as: :comment  %>
+      </turbo-frame>   
+
     </div>
 
     <div class="right-bar">
     </div>
   </div>
-
-  <%= link_to "Edit this cause", edit_cause_path(@cause), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-  <%= link_to "Back to causes", causes_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-  <%= button_to "Destroy this cause", @cause, method: :delete, form_class: "sm:inline-block mt-2 sm:mt-0 sm:ml-2", class: "w-full rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: "Are you sure?" } %>
 </div>
