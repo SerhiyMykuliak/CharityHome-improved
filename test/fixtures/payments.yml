@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cause: one
+  amount: 9.99
+  status: MyString
+  username: MyString
+  email: MyString
+  description: MyText
+
+two:
+  cause: two
+  amount: 9.99
+  status: MyString
+  username: MyString
+  email: MyString
+  description: MyText

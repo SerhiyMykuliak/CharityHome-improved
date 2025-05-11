@@ -1,0 +1,48 @@
+
+<%= render 'layouts/page_title', title: "Create Payment" %>
+
+<section class="container mx-auto mt-24 mb-16 px-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <div>
+      <% if @cause %>
+        <div class="bg-white rounded-xl shadow-md p-8 max-w-2xl mx-auto border border-[#f1f1f1]">
+          <% if @cause.image.present? %>
+            <%= image_tag @cause.image, class: "w-full block mb-[20px]" %>
+          <% end %>
+          <h3 class="text-2xl font-semibold text-[#23282A] mb-4 f-roboto"><%= @cause.title %></h3>
+          <p class="text-sm text-[#495057] mb-4"><%= @cause.short_description %></p>
+        </div>
+      <% end %>
+    </div>
+
+    <div>
+      <div class="bg-white rounded-xl shadow-md p-8 max-w-2xl mx-auto border border-[#f1f1f1]">
+        <h2 class="text-3xl font-bold text-[#23282A] mb-6 f-roboto">Create Payment</h2>
+
+        <%= form_with model: [@cause, @payment], class: "space-y-5", data: { turbo: false }  do |f| %>
+
+          <%= f.label :username, "Name", class: "block text-sm font-semibold mb-1 text-[#23282A]" %>
+          <%= f.text_field :username, placeholder: "Your Name", class: "w-full h-14 border border-[#F0F0F0] px-4 text-[#495057] outline-none rounded-md" %>
+
+          <%= f.label :email, "Email", class: "block text-sm font-semibold mb-1 text-[#23282A]" %>
+          <%= f.email_field :email, placeholder: "Email", class: "w-full h-14 border border-[#F0F0F0] px-4 text-[#495057] outline-none rounded-md" %>
+
+          <%= f.label :amount, "Amount (USD)", class: "block text-sm font-semibold mb-1 text-[#23282A]" %>
+          <% if @payment.errors[:amount].any? %>
+            <div class="text-red-600 text-xs mb-0">* <%= @payment.errors[:amount].first %></div>
+          <% end %>
+          <%= f.number_field :amount, placeholder: "Amount (USD)", min: 1, step: 0.01, class: "w-full h-14 border border-[#F0F0F0] px-4 text-[#495057] outline-none rounded-md" %>
+
+          <%= f.label :description, "Your wishes", class: "block text-sm font-semibold mb-1 text-[#23282A]" %>
+          <%= f.text_area :description, placeholder: "Your wishes", rows: 4, class: "w-full border border-[#F0F0F0] px-4 py-3 text-[#495057] outline-none rounded-md", maxlength: 250 %>
+
+          <div class="text-center">
+            <%= f.submit 'Pay', class: "bg-[#f14b05] text-white uppercase font-bold f-roboto px-8 py-3 rounded-full border-2 border-[#f14b05] transition-colors duration-200 hover:bg-white hover:text-[#f14b05]" %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+

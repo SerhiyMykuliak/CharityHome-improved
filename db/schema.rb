@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_06_084828) do
+ActiveRecord::Schema[7.1].define(version: 2025_05_10_110031) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,7 +65,22 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_06_084828) do
     t.index ["cause_id"], name: "index_comments_on_cause_id"
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.bigint "cause_id", null: false
+    t.decimal "amount", precision: 10, scale: 2, null: false
+    t.string "status", default: "pending", null: false
+    t.string "username"
+    t.string "email"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "reference"
+    t.index ["cause_id"], name: "index_payments_on_cause_id"
+    t.index ["reference"], name: "index_payments_on_reference"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "causes"
+  add_foreign_key "payments", "causes"
 end
