@@ -25,7 +25,14 @@
         <p class="text-[#9C9C9C] text-[15px] "> <%= cause.short_description %> </p>
         
       <div class="buttons mt-[30px] my-[20px]">
-          <%= link_to "Donate now", new_cause_payment_path(cause), class: "text-white uppercase f-roboto text-bold bg-[#F14B05] px-[15px] py-[8px] rounded-full border-2 border-[#F14B05] text-[11px] font-bold w-fit hover:bg-white hover:text-[#F14B05] transition-colors duration-500" %>
+          <%= link_to "Donate now",
+            (cause.ended? ? "#" : new_cause_payment_path(cause)),
+            class: [
+              "text-white uppercase f-roboto text-bold px-[15px] py-[8px] rounded-full border-2 text-[11px] font-bold w-fit transition-colors duration-500 bg-[#F14B05] border-[#F14B05] hover:bg-white hover:text-[#F14B05]",
+              { "bg-gray-400 cursor-not-allowed border-gray-400 pointer-events-none" => cause.ended? }
+            ]
+          %>
+
           <%= link_to "Read more", cause, class: "text-[#F14B05] uppercase f-roboto text-bold bg-white px-[15px] py-[8px] rounded-full border-2 border-[#F14B05] text-[11px] font-bold w-fit hover:bg-[#F14B05] hover:text-white transition-colors duration-500" %>
       </div>
     </div>

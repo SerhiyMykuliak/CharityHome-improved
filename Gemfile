@@ -77,3 +77,4 @@ end
 gem "tailwindcss-ruby", "~> 4.1"
 
 gem 'monopay-ruby', '~> 1.1'
+gem 'activestorage-validator', '~> 0.4.0'

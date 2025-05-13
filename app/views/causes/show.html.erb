@@ -34,10 +34,14 @@
             <div class="line h-[1px] w-full bg-[#E6E6E6]"></div>
 
             <div class="campaign-donors py-[14px] w-1/2 flex flex-col">
-              <p><span class="text-base text-[#F65024] font-bold">1</span> Donors</p>
+              <p><span class="text-base text-[#F65024] font-bold">  <%= pluralize(@cause.donation_count, "Donation") %> </span> </p>
             </div>
             <div class="campaign-time-left py-[14px] w-1/2 flex flex-col">
-              <p>Campaign has ended</p>
+              <% if @cause.ended? %>
+                <p>Campaign has ended</p>
+              <% else %>
+                <p>Campaign continues</p>
+              <% end %>
             </div>
           </div>
 
