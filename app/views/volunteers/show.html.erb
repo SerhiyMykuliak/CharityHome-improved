@@ -1,0 +1,38 @@
+
+<div class="container px-[15px] mx-auto py-[90px]">
+
+  <div class="volunteer flex flex-col mb-[60px]">
+    <%= image_tag @volunteer.avatar, class: "w-full" %>
+
+    <h3 class="f-roboto text-[#222E35] text-[18px] font-bold mb-[4px] mt-[20px]"><%= @volunteer.first_name %> <%= @volunteer.last_name %></h3>
+    <p class="text-[#EB5310] text-[13px] mb-[15px] pb-[15px] border-b-1 border-[#E6E6E6]">Volunteer</p>
+  
+    <p class="text-[#9C9C9C] text-sm"> <%= @volunteer.description %> </p>
+
+    <div class="icons flex gap-2.5 mt-[20px]">
+      
+      <% if @volunteer.facebook_url.present? %>
+        <%= link_to image_tag("icons/facebook-icon.png", class: "w-[30px] h-[30px]"), @volunteer.facebook_url %>    
+      <% end %>
+      <% if @volunteer.instagram_url.present? %>
+        <%= link_to image_tag("icons/instagram-icon.png", class: "w-[30px] h-[30px]"), @volunteer.instagram_url %>
+      <% end %>
+      <% if @volunteer.twitter_url.present? %>
+        <%= link_to image_tag("icons/twitter-icon.png", class: "w-[30px] h-[30px]"), @volunteer.twitter_url %>
+      <% end %>
+      
+     
+    </div>
+
+    <%# <div class=""> %>
+      <%# <%= link_to "Show", volunteer, class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %> 
+      <%# <%= link_to "Edit", edit_volunteer_path(volunteer), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+      <%# <%= button_to "Destroy", volunteer, method: :delete, class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: "Are you sure?" } %>
+    <%# </div> %>
+    
+  </div>
+
+  <%= link_to "Edit this volunteer", edit_volunteer_path(@volunteer), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+  <%= link_to "Back to volunteers", volunteers_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+  <%= button_to "Destroy this volunteer", @volunteer, method: :delete, form_class: "sm:inline-block mt-2 sm:mt-0 sm:ml-2", class: "w-full rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: "Are you sure?" } %>
+</div>

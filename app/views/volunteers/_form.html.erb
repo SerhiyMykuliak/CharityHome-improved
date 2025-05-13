@@ -1,0 +1,106 @@
+<%= form_with(model: volunteer, class: "contents") do |form| %>
+  <% if volunteer.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
+      <h2><%= pluralize(volunteer.errors.count, "error") %> didn’t allow to save volunteer:</h2>
+
+      <ul class="list-disc ml-6">
+        <% volunteer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", { "border-gray-400 focus:outline-blue-600": volunteer.errors[:first_name].none?, "border-red-400 focus:outline-red-600": volunteer.errors[:first_name].any? }] %>
+    <% if volunteer.errors[:first_name].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= volunteer.errors[:first_name].first %></p>
+    <% end %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", { "border-gray-400 focus:outline-blue-600": volunteer.errors[:last_name].none?, "border-red-400 focus:outline-red-600": volunteer.errors[:last_name].any? }] %>
+    <% if volunteer.errors[:last_name].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= volunteer.errors[:last_name].first %></p>
+    <% end %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", { "border-gray-400 focus:outline-blue-600": volunteer.errors[:email].none?, "border-red-400 focus:outline-red-600": volunteer.errors[:email].any? }] %>
+    <% if volunteer.errors[:email].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= volunteer.errors[:email].first %></p>
+    <% end %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", { "border-gray-400 focus:outline-blue-600": volunteer.errors[:avatar].none?, "border-red-400 focus:outline-red-600": volunteer.errors[:avatar].any? }] %>
+    <% if volunteer.errors[:avatar].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= volunteer.errors[:avatar].first %></p>
+    <% end %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :phone_number %>
+    <%= form.text_field :phone_number, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", { "border-gray-400 focus:outline-blue-600": volunteer.errors[:phone_number].none?, "border-red-400 focus:outline-red-600": volunteer.errors[:phone_number].any? }] %>
+    <% if volunteer.errors[:phone_number].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= volunteer.errors[:phone_number].first %></p>
+    <% end %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :city %>
+    <%= form.text_field :city, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", { "border-gray-400 focus:outline-blue-600": volunteer.errors[:city].none?, "border-red-400 focus:outline-red-600": volunteer.errors[:city].any? }] %>
+    <% if volunteer.errors[:city].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= volunteer.errors[:city].first %></p>
+    <% end %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :description %>
+    <%= form.text_area :description, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", { "border-gray-400 focus:outline-blue-600": volunteer.errors[:description].none?, "border-red-400 focus:outline-red-600": volunteer.errors[:description].any? }] %>
+    <% if volunteer.errors[:description].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= volunteer.errors[:description].first %></p>
+    <% end %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :birth_date %>
+    <%= form.date_field :birth_date, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", { "border-gray-400 focus:outline-blue-600": volunteer.errors[:birth_date].none?, "border-red-400 focus:outline-red-600": volunteer.errors[:birth_date].any? }] %>
+    <% if volunteer.errors[:birth_date].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= volunteer.errors[:birth_date].first %></p>
+    <% end %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :facebook_url %>
+    <%= form.text_field :facebook_url, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", { "border-gray-400 focus:outline-blue-600": volunteer.errors[:facebook_url].none?, "border-red-400 focus:outline-red-600": volunteer.errors[:facebook_url].any? }] %>
+    <% if volunteer.errors[:facebook_url].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= volunteer.errors[:facebook_url].first %></p>
+    <% end %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :instagram_url %>
+    <%= form.text_field :instagram_url, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", { "border-gray-400 focus:outline-blue-600": volunteer.errors[:instagram_url].none?, "border-red-400 focus:outline-red-600": volunteer.errors[:instagram_url].any? }] %>
+    <% if volunteer.errors[:instagram_url].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= volunteer.errors[:instagram_url].first %></p>
+    <% end %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :twitter_url %>
+    <%= form.text_field :twitter_url, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", { "border-gray-400 focus:outline-blue-600": volunteer.errors[:twitter_url].none?, "border-red-400 focus:outline-red-600": volunteer.errors[:twitter_url].any? }] %>
+    <% if volunteer.errors[:twitter_url].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= volunteer.errors[:twitter_url].first %></p>
+    <% end %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>
+

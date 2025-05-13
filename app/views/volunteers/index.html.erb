@@ -1,0 +1,17 @@
+
+<%= render 'layouts/page_title', title: "Volunteers" %>
+
+<div class="container mt-[90px] mb-[30px] grid">
+
+  <div id="volunteers" class="">
+    <% if @volunteers.any? %>
+      <% @volunteers.each do |volunteer| %>
+        <div class="space-x-12">
+          <%= render 'volunteer_card', volunteer: volunteer %>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="text-center my-10">No volunteers found.</p>
+    <% end %>
+  </div>
+</div>
