@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_10_110031) do
+ActiveRecord::Schema[7.1].define(version: 2025_05_13_150857) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -77,6 +77,21 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_10_110031) do
     t.string "reference"
     t.index ["cause_id"], name: "index_payments_on_cause_id"
     t.index ["reference"], name: "index_payments_on_reference"
+  end
+
+  create_table "volunteers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone_number"
+    t.string "city"
+    t.text "description"
+    t.date "birth_date"
+    t.string "facebook_url"
+    t.string "instagram_url"
+    t.string "twitter_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
