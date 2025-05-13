@@ -19,36 +19,27 @@ class CausesController < ApplicationController
   def create
     @cause = Cause.new(cause_params)
 
-    respond_to do |format|
-      if @cause.save
-        format.html { redirect_to @cause, notice: "Cause was successfully created." }
-        format.json { render :show, status: :created, location: @cause }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @cause.errors, status: :unprocessable_entity }
-      end
+    if @cause.save
+      redirect_to @cause, notice: "Cause was successfully created." 
+    else
+      render :new, status: :unprocessable_entity
     end
+
   end
 
   def update
-    respond_to do |format|
-      if @cause.update(cause_params)
-        format.html { redirect_to @cause, notice: "Cause was successfully updated." }
-        format.json { render :show, status: :ok, location: @cause }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @cause.errors, status: :unprocessable_entity }
-      end
+
+    if @cause.update(cause_params)
+      redirect_to @cause, notice: "Cause was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity 
     end
+
   end
 
   def destroy
     @cause.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to causes_path, status: :see_other, notice: "Cause was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to causes_path, status: :see_other, notice: "Cause was successfully destroyed."
   end
 
   private

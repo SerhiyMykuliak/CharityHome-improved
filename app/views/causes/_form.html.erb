@@ -1,11 +1,11 @@
 <%= form_with(model: cause, class: "contents") do |form| %>
   <% if cause.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
-      <h2><%= pluralize(cause.errors.count, "error") %> prohibited this cause from being saved:</h2>
+      <h2><%= pluralize(cause.errors.count, "error") %> didn`t allow to save cause:</h2>
 
       <ul class="list-disc ml-6">
-        <% cause.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% cause.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
@@ -14,46 +14,79 @@
   <div class="my-5">
     <%= form.label :title %>
     <%= form.text_field :title, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": cause.errors[:title].none?, "border-red-400 focus:outline-red-600": cause.errors[:title].any?}] %>
+    <% if cause.errors[:title].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= cause.errors[:title].first %></p>
+    <% end %>
   </div>
 
-    <div class="my-5">
+  <div class="my-5">
     <%= form.label :image %>
-    <%= form.file_field :image, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": cause.errors[:title].none?, "border-red-400 focus:outline-red-600": cause.errors[:title].any?}] %>
+    <%= form.file_field :image, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": cause.errors[:image].none?, "border-red-400 focus:outline-red-600": cause.errors[:image].any?}] %>
+    <% if cause.errors[:image].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= cause.errors[:image].first %></p>
+    <% end %>
   </div>
 
   <div class="my-5">
     <%= form.label :description %>
     <%= form.text_area :description, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": cause.errors[:description].none?, "border-red-400 focus:outline-red-600": cause.errors[:description].any?}] %>
+    <% if cause.errors[:description].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= cause.errors[:description].first %></p>
+    <% end %>
   </div>
 
   <div class="my-5">
     <%= form.label :short_description %>
     <%= form.text_field :short_description, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": cause.errors[:short_description].none?, "border-red-400 focus:outline-red-600": cause.errors[:short_description].any?}] %>
+    <% if cause.errors[:short_description].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= cause.errors[:short_description].first %></p>
+    <% end %>
   </div>
 
   <div class="my-5">
     <%= form.label :goal_amount %>
     <%= form.text_field :goal_amount, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": cause.errors[:goal_amount].none?, "border-red-400 focus:outline-red-600": cause.errors[:goal_amount].any?}] %>
+    <% if cause.errors[:goal_amount].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= cause.errors[:goal_amount].first %></p>
+    <% end %>
   </div>
 
   <div class="my-5">
     <%= form.label :collected_amount %>
-    <%= form.text_field :collected_amount, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": cause.errors[:collected_amount].none?, "border-red-400 focus:outline-red-600": cause.errors[:collected_amount].any?}] %>
+    <%= form.text_field :collected_amount, value: 0, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": cause.errors[:collected_amount].none?, "border-red-400 focus:outline-red-600": cause.errors[:collected_amount].any?}] %>
+    <% if cause.errors[:collected_amount].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= cause.errors[:collected_amount].first %></p>
+    <% end %>
   </div>
 
   <div class="my-5">
     <%= form.label :status %>
-    <%= form.text_field :status, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": cause.errors[:status].none?, "border-red-400 focus:outline-red-600": cause.errors[:status].any?}] %>
+    <%= form.select :status, 
+        options_for_select(Cause::VALID_STATUSES.map { |s| [s.humanize, s] }, selected: cause.status), 
+        {}, 
+        class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", 
+                {"border-gray-400 focus:outline-blue-600": cause.errors[:status].none?, 
+                "border-red-400 focus:outline-red-600": cause.errors[:status].any?}] %>
+
+    <% if cause.errors[:status].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= cause.errors[:status].first %></p>
+    <% end %>
   </div>
 
   <div class="my-5">
     <%= form.label :start_date %>
     <%= form.date_field :start_date, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": cause.errors[:start_date].none?, "border-red-400 focus:outline-red-600": cause.errors[:start_date].any?}] %>
+    <% if cause.errors[:start_date].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= cause.errors[:start_date].first %></p>
+    <% end %>
   </div>
 
   <div class="my-5">
     <%= form.label :end_date %>
     <%= form.date_field :end_date, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": cause.errors[:end_date].none?, "border-red-400 focus:outline-red-600": cause.errors[:end_date].any?}] %>
+    <% if cause.errors[:end_date].any? %>
+      <p class="text-red-500 text-sm mt-1"><%= cause.errors[:end_date].first %></p>
+    <% end %>
   </div>
 
   <div class="inline">
