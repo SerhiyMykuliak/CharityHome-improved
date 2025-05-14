@@ -1,0 +1,11 @@
+<%= render 'layouts/page_title', title: "Gallery" %>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-[90px] pb-[60px] mx-auto">
+  <% if @gallery_images.any? %>
+    <% @gallery_images.each do |gallery_image| %>
+      <%= render 'gallery_image', gallery_image: gallery_image %>
+    <% end %>
+  <% else %>
+    <p class="text-gray-500 text-center my-10 col-span-full">No images found.</p>
+  <% end %>
+</div>
