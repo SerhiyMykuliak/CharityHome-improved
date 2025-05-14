@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :volunteers
+  resources :gallery_images, except: [:show]
   resources :causes do 
     resources :comments, only: [:create]
     resources :payments, only: [:new, :create]
