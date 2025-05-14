@@ -18,25 +18,7 @@
 
   <body>
 
-    <div class="fixed top-20 right-4 z-150 space-y-2">
-      <% flash.each do |type, message| %>
-        <% alert_class = case type.to_sym
-          when :notice
-            "bg-blue-100 border border-blue-400 text-blue-700"
-          when :success
-            "bg-green-100 border border-green-400 text-green-700"
-          when :alert, :error
-            "bg-red-100 border border-red-400 text-red-700"
-          else
-            "bg-gray-100 border border-gray-400 text-gray-700"
-          end
-        %>
-
-        <div class="rounded px-4 py-3 shadow-lg text-sm <%= alert_class %>" role="alert">
-          <p><%= message %></p>
-        </div>
-      <% end %>
-    </div>
+    <%= render 'layouts/flash' %>
 
     <header class="flex flex-col justify-center items-center py-5">
       <div class="mb-8"> <%= image_tag("dark-logo.png", alt: "dark-logo.png") %> </div>

@@ -4,15 +4,15 @@
     <%= image_tag cause.image, class: "w-full block" %>
 
     <div class="absolute w-full bottom-0 px-[40px] py-[22px] bg-white/70"
-        data-controller="progress-bar"
-        data-progress-bar-goal-amount-value="<%= cause.goal_amount %>"
-        data-progress-bar-collected-amount-value="<%= cause.collected_amount %>">
+        data-controller="causes-progress-bar"
+        data-causes-progress-bar-goal-amount-value="<%= cause.goal_amount %>"
+        data-causes-progress-bar-collected-amount-value="<%= cause.collected_amount %>">
 
       <div class="bar w-full bg-[#9C9C9C] h-[15px] rounded-full relative">
-        <div data-progress-bar-target="percentage"
-            class="absolute flex justify-center items-center border-2 border-white bg-[#EB5310] text-white w-[35px] h-[35px] rounded-full top-[-10px] text-[10px] font-[500]"></div>
+        <div data-causes-progress-bar-target="percentage"
+            class="absolute flex justify-center items-center border-2 border-white bg-[#EB5310] text-white w-[35px] h-[35px] rounded-full top-[-10px] text-[10px] font-[500] left-0"></div>
 
-        <div data-progress-bar-target="progress"
+        <div data-causes-progress-bar-target="progress"
             class="progress bg-[#EB5310] h-[15px] rounded-full w-0"></div>
       </div>
     </div>
