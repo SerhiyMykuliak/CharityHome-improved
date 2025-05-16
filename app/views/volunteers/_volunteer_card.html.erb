@@ -1,7 +1,7 @@
 <div id="<%= dom_id volunteer %>" class="w-full flex flex-col">
 
   <div class="volunteer flex flex-col px-[15px] mb-[60px]">
-    <%= image_tag volunteer.avatar, class: "w-full" %>
+    <%= image_tag volunteer.avatar, class: "w-full aspect-square object-cover" %>
 
     <h3 class="f-roboto text-[#222E35] text-[18px] font-bold mb-[4px] mt-[20px]"><%= volunteer.first_name %> <%= volunteer.last_name %></h3>
     <p class="text-[#EB5310] text-[13px] mb-[15px] pb-[15px] border-b-1 border-[#E6E6E6]">Volunteer</p>

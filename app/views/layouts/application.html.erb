@@ -14,64 +14,100 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   
+      <!-- У <head> — стилі Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+
   </head>
 
   <body>
 
     <%= render 'layouts/flash' %>
 
-    <header class="flex flex-col justify-center items-center py-5">
-      <div class="mb-8"> <%= image_tag("dark-logo.png", alt: "dark-logo.png") %> </div>
-      
-      <div class="flex gap-20 text-[13px]">
-        <div class="flex flex-col gap-1 justify-center items-center">
-          <div class="p-1 border border-[#E1E1E1] flex justify-center items-center w-16 h-16 rounded-full ">
-            <div class=""><%= image_tag("email.png", alt: "fast-delivery") %></div>
-          </div>
-          <div class="font-bold f-roboto">EMAIL</div>
-          <div class="text-[#B6B6B6]">companyname@mail.com</div>
-        </div>
-
-        <div class="flex flex-col gap-1 justify-center items-center text-sm">
-          <div class="p-1 border border-[#E1E1E1] flex justify-center items-center w-16 h-16 rounded-full">
-            <div class=""><%= image_tag("smartphone.png", alt: "") %></div>
-          </div>
-          <div class="font-bold f-roboto">CALL NOW</div>
-          <div class="font-medium text-lg">(732) 803-010-03</div>
-        </div>
+    <header class="container px-4 mx-auto flex flex-col lg:flex-row justify-center lg:justify-between items-center py-5 gap-6 lg:gap-0">
+      <div class="mb-8 lg:mb-0">
+        <%= image_tag("dark-logo.png", alt: "dark-logo.png") %>
       </div>
 
-      <%= button_to 'donate now', '/', method: :get, class: 'f-roboto text-[12px] uppercase rounded-full text-white py-[7px] px-[35px] font-bold border-2 border-[#f14b05] bg-[#f14b05] mt-5 cursor-pointer hover:bg-white hover:text-[#f14b05] transition-colors duration-300' %>  
-    </header>
-
-    <div class="flex mainmenu min-w-full bg-[#262F36] h-[74px] border-b-4 border-[#f14b05] sticky top-0 z-100">
-      <div class="container flex justify-between mx-auto px-[15px] h-[70px] content-center items-center">
-        <div data-controller="menu-toggle">
+      <div class="flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-8">
+        <div class="flex gap-10 lg:gap-4 text-[13px] text-center lg:text-left">
           
-          <div data-action="click->menu-toggle#toggle" class="mobile-nav-toggle w-10 h-10 bg-[#f14b05] flex justify-center items-center cursor-pointer"> 
-            <%= image_tag("burger-bar.png", class: "w-[20] h-[22]")%>
+          <div class="flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-4">
+            <div class="w-16 h-16 p-1 border border-[#E1E1E1] rounded-full flex items-center justify-center">
+              <%= image_tag("email.png", alt: "fast-delivery") %>
+            </div>
+            <div class="flex flex-col">
+              <div class="font-bold f-roboto">EMAIL</div>
+              <div class="text-[#B6B6B6]">companyname@mail.com</div>
+            </div>
           </div>
 
-          <div data-menu-toggle-target="menu" class="w-[300px] h-screen bg-[#202020] text-white fixed top-0 right-[-300px] transition-all duration-1000 z-200">
-            <div>
-              <%= image_tag("dark-logo.png", alt: "", class:"mb-[100px] px-[35px] py-[25px]") %>
-              
-              <ul>
-                <li class="border-t-1 border-gray-700 px-[25px] py-[10px]"> <%= link_to 'Home', root_path, class: "text-[15px] font-medium uppercase" %> </li>
-                <li class="border-t-1 border-gray-700 px-[25px] py-[10px]"> <%= link_to 'Causes', causes_path, class: "text-[15px] font-medium uppercase" %> </li>
-                <li class="border-t-1 border-gray-700 px-[25px] py-[10px]"> <%= link_to 'Volunteers', volunteers_path, class: "text-[15px] font-medium uppercase" %> </li>
-                <li class="border-t-1 border-gray-700 px-[25px] py-[10px]"> <%= link_to 'Gallery', gallery_images_path, class: "text-[15px] font-medium uppercase" %> </li>
-              </ul>
-              
+          <div class="flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-4">
+            <div class="w-16 h-16 p-1 border border-[#E1E1E1] rounded-full flex items-center justify-center">
+              <%= image_tag("smartphone.png", alt: "") %>
+            </div>
+            <div class="flex flex-col">
+              <div class="font-bold f-roboto">CALL NOW</div>
+              <div class="font-medium text-lg">(732) 803-010-03</div>
             </div>
           </div>
         </div>
 
-        <div class="search">
-          <%= image_tag("search.png", class: "w-[22] h-[22]")%>
+        <div class="mt-5 lg:mt-0 lg:pl-8 text-center">
+          <%= button_to 'donate now', '/', method: :get, class: 'f-roboto text-xs uppercase rounded-full text-white py-2 px-9 font-bold border-2 border-[#f14b05] bg-[#f14b05] cursor-pointer hover:bg-white hover:text-[#f14b05] transition-colors duration-300' %>
+        </div>
+      </div>
+    </header>
+
+<div class="flex mainmenu min-w-full bg-[#262F36] h-[74px] border-b-4 border-[#f14b05] sticky top-0 z-[100]">
+  <div class="container flex justify-between mx-auto px-[15px] h-[70px] items-center">
+
+    <!-- Мобільне меню -->
+    <div data-controller="menu-toggle" class="lg:hidden flex items-center">
+      <div data-action="click->menu-toggle#toggle" class="mobile-nav-toggle w-10 h-10 bg-[#f14b05] flex justify-center items-center cursor-pointer"> 
+        <%= image_tag("burger-bar.png", class: "w-[20px] h-[22px]") %>
+      </div>
+
+      <div data-menu-toggle-target="menu" class="w-[300px] h-screen bg-[#202020] text-white fixed top-0 right-[-300px] transition-all duration-1000 z-[200]">
+        <div>
+          <%= image_tag("dark-logo.png", alt: "", class: "mb-[100px] px-[35px] py-[25px]") %>
+
+          <ul>
+            <li class="border-t border-gray-700 px-[25px] py-[10px]">
+              <%= link_to 'Home', root_path, class: "text-[15px] font-medium uppercase" %>
+            </li>
+            <li class="border-t border-gray-700 px-[25px] py-[10px]">
+              <%= link_to 'Causes', causes_path, class: "text-[15px] font-medium uppercase" %>
+            </li>
+            <li class="border-t border-gray-700 px-[25px] py-[10px]">
+              <%= link_to 'Volunteers', volunteers_path, class: "text-[15px] font-medium uppercase" %>
+            </li>
+            <li class="border-t border-gray-700 px-[25px] py-[10px]">
+              <%= link_to 'Gallery', gallery_images_path, class: "text-[15px] font-medium uppercase" %>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
+
+    <!-- Меню для великих екранів -->
+    <nav class="hidden lg:flex gap-6 text-white uppercase text-[15px] font-medium">
+      <%= link_to 'Home', root_path, class: "hover:text-[#f14b05] transition-colors duration-300" %>
+      <%= link_to 'Causes', causes_path, class: "hover:text-[#f14b05] transition-colors duration-300" %>
+      <%= link_to 'Volunteers', volunteers_path, class: "hover:text-[#f14b05] transition-colors duration-300" %>
+      <%= link_to 'Gallery', gallery_images_path, class: "hover:text-[#f14b05] transition-colors duration-300" %>
+    </nav>
+
+    <div class="search">
+      <%= image_tag("search.png", class: "w-[22px] h-[22px]") %>
+    </div>
+
+  </div>
+</div>
+
 
     <main class="">
       <%= yield %>
@@ -79,9 +115,9 @@
 
 
     <footer class="pb-[40px] pt-[90px] bg-[#262F36] text-[#C9C9C9] text-[13px]">
-      <div class="container mx-auto">
-        <div class="grid grid-cols-1 justify-items-center">
-          <div class="block px-[15px] w-[400px]">
+      <div class="container mx-auto px-[15px]">
+        <div class="grid grid-cols-1 xl:grid-cols-3 justify-items-center">
+          <div class="block w-[400px]">
             <%= image_tag("logo-white", class: "mb-[20px]")%>
             <p class="leading-7 mb-3.5">Lorem ipsum dolor sit amet, eu me evert laboramus, iudico</p>
 
@@ -106,7 +142,7 @@
             </div>
           </div>
 
-          <div class="pages px-[15px] w-[400px] mb-[50px]">
+          <div class="pages w-[400px] mb-[50px]">
             <h3 class="text-xl mb-15 text-white f-roboto font-bold">Pages</h3>
 
             <div class="grid grid-cols-2">
@@ -119,7 +155,7 @@
             </div>
           </div>
 
-          <div class="pages px-[15px] w-[400px] mb-[50px]">
+          <div class="pages w-[400px] mb-[50px]">
             <h3 class="text-xl mb-15 text-white f-roboto font-bold">Contact Form</h3>
 
             <input type="text" name="username" placeholder="Full name" class="w-full h-[50px] bg-[#2C353C] text-[#C9C9C9] text-[13px] mb-[10px] border-0 outline-none px-[20px]">
@@ -133,6 +169,7 @@
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   </body>
 </html>

@@ -45,6 +45,6 @@
   background-color: white;
  }
 
- .mission-icon-box:hover{
+ .group:hover .mission-icon-box{
   background-color: #333;
  }

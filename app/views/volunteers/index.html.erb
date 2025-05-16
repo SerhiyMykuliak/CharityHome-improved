@@ -1,9 +1,9 @@
 
 <%= render 'layouts/page_title', title: "Volunteers" %>
 
-<div class="container mt-[90px] mb-[30px] grid">
+<div class="container mt-[90px] mb-[30px] mx-auto">
 
-  <div id="volunteers" class="">
+  <div id="volunteers" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
     <% if @volunteers.any? %>
       <% @volunteers.each do |volunteer| %>
         <div class="space-x-12">
