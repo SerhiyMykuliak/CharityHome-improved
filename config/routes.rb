@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
   end 
   root "pages#home"
-
+  get 'contact', to: 'pages#contact'
   post '/webhooks_monopay', to: 'webhooks#monopay', as: :webhooks_monopay
   
 end
