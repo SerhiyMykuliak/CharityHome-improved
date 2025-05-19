@@ -1,0 +1,34 @@
+<header class="container px-4 mx-auto flex flex-col lg:flex-row justify-center lg:justify-between items-center py-5 gap-6 lg:gap-0">
+  <div class="mb-8 lg:mb-0">
+    <%= image_tag("dark-logo.png", alt: "dark-logo.png") %>
+  </div>
+
+  <div class="flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-8">
+    <div class="flex gap-10 lg:gap-4 text-[13px] text-center lg:text-left">
+      
+      <div class="flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-4">
+        <div class="w-16 h-16 p-1 border border-[#E1E1E1] rounded-full flex items-center justify-center">
+          <%= image_tag("email.png", alt: "fast-delivery") %>
+        </div>
+        <div class="flex flex-col">
+          <div class="font-bold f-roboto">EMAIL</div>
+          <div class="text-[#B6B6B6]">companyname@mail.com</div>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row items-center justify-center gap-1 lg:gap-4">
+        <div class="w-16 h-16 p-1 border border-[#E1E1E1] rounded-full flex items-center justify-center">
+          <%= image_tag("smartphone.png", alt: "") %>
+        </div>
+        <div class="flex flex-col">
+          <div class="font-bold f-roboto">CALL NOW</div>
+          <div class="font-medium text-lg">(732) 803-010-03</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5 lg:mt-0 lg:pl-8 text-center">
+      <%= button_to 'donate now', '/', method: :get, class: 'f-roboto text-xs uppercase rounded-full text-white py-2 px-9 font-bold border-2 border-[#f14b05] bg-[#f14b05] cursor-pointer hover:bg-white hover:text-[#f14b05] transition-colors duration-300' %>
+    </div>
+  </div>
+</header>
