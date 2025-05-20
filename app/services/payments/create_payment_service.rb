@@ -38,6 +38,6 @@ module Payments
       @error = message
       self
     end 
-
+    
   end 
 end 

@@ -16,12 +16,12 @@ module Invoices
         @success = true
         @invoice_id = provider.invoice_id
         @page_url = provider.page_url
-        self
       else
         @success = false
         @error = "Failed to create invoice"
-        self
       end
+
+      self
     end 
   end 
 end 
