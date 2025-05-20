@@ -8,7 +8,7 @@ module Payments
 
     def call(payment:, cause:, redirect_url:, webhook_url:)
 
-      return failure("Failed to save payment: #{payment.errors.full_messages.first}")
+      return failure("Failed to save payment: #{payment.errors.full_messages.first}") unless payment.valid?
 
       invoice_service = @invoice_service_class.new
       invoice_result = invoice_service.call(
