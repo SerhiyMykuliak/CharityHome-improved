@@ -10,7 +10,7 @@ class PaymentsController < ApplicationController
     @cause = Cause.find(params[:cause_id])
     @payment = @cause.payments.build(payment_params)
 
-    service = Payments::CreateService.new
+    service = Payments::CreatePaymentService.new
     result = service.call(
       payment: @payment,
       cause: @cause,
@@ -18,7 +18,7 @@ class PaymentsController < ApplicationController
       webhook_url: webhooks_monopay_url
     )
 
-    if result.success?
+    if result.success
       redirect_to result.redirect_url, allow_other_host: true
     else
       Rails.logger.error(result.error)

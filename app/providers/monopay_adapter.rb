@@ -19,5 +19,5 @@ class MonopayAdapter
     else
       false
     end 
-  end 
+  end  
 end 

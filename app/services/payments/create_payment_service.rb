@@ -1,13 +1,14 @@
 module Payments
-  class CreateService
-    Result = Struct.new(:success?, :redirect_url, :error)
+  class CreatePaymentService
+    attr_reader :success, :redirect_url, :error
 
     def initialize(invoice_service_class: Invoices::CreateInvoice)
       @invoice_service_class = invoice_service_class
     end 
 
     def call(payment:, cause:, redirect_url:, webhook_url:)
-      return Result.new(false, nil, "Invalid payment") unless payment.valid?
+
+      return failure("Failed to save payment: #{payment.errors.full_messages.first}")
 
       invoice_service = @invoice_service_class.new
       invoice_result = invoice_service.call(
@@ -17,17 +18,26 @@ module Payments
         metadata: { destination: cause.title }
       )
 
-      unless invoice_result.success?
-        return Result.new(false, nil, invoice_result.error)
-      end 
+      return failure(invoice_result.error) unless invoice_result.success
 
       payment.reference = invoice_result.invoice_id
 
       if payment.save
-        Result.new(true, invoice_result.page_url, nil)
+        @success = true
+        @redirect_url = invoice_result.page_url
+        self
       else
-        Result.new(false, nil, "Failed to save payment: #{payment.errors.full_messages.join(", ")}")
+        failure("Failed to save payment: #{payment.errors.full_messages.first}")
       end
+    end
+    
+    private
+
+    def failure(message)
+      @success = false
+      @error = message
+      self
     end 
+
   end 
 end 

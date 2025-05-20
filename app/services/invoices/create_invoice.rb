@@ -1,6 +1,6 @@
 module Invoices
   class CreateInvoice
-    Result = Struct.new(:success?, :invoice_id, :page_url, :error)
+    attr_reader :success, :invoice_id, :page_url, :error
   
     def initialize(provider_class: MonopayAdapter)
       @provider_class = provider_class
@@ -13,9 +13,14 @@ module Invoices
       )
 
       if provider.create(amount, additional_params: metadata)
-        Result.new(true, provider.invoice_id, provider.page_url, nil)
+        @success = true
+        @invoice_id = provider.invoice_id
+        @page_url = provider.page_url
+        self
       else
-        Result.new(false, nil, nil, "Failed to create invoice")
+        @success = false
+        @error = "Failed to create invoice"
+        self
       end
     end 
   end 
