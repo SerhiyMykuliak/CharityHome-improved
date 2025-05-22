@@ -1,17 +1,19 @@
 
 <%= render 'layouts/page_title', title: "Causes" %>
 
-<div class="causes container pt-[90px] pb-[60px] mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 ">
-
-  <% if @causes.any? %>
-    <% @causes.each do |cause| %>
-      <%= render cause %> 
+<div class="causes container pt-[90px] pb-[60px] mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 ">
+    <% if @causes.any? %>
+      <% @causes.each do |cause| %>
+        <%= render cause %> 
+      <% end %>
+    <% else %>
+      <p class="text-gray-500 text-center my-10">No causes found.</p>
     <% end %>
-  <% else %>
-    <p class="text-gray-500 text-center my-10">No causes found.</p>
-  <% end %>
-
+  </div>
+  <%= paginate @causes %>
 </div>
+
 
 
 

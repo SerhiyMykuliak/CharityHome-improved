@@ -56,6 +56,8 @@
       <h2 class="f-roboto font-bold text-3xl text-[#23282A] mb-[10px]">Comments</h2>
       <turbo-frame id="comments">
         <%= render partial: "comments/comment", collection: @comments, as: :comment  %>
+
+        <%= paginate @comments %>
       </turbo-frame>   
 
     </div>

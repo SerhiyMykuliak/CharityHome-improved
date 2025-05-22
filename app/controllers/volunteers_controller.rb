@@ -2,7 +2,7 @@ class VolunteersController < ApplicationController
   before_action :set_volunteer, only: %i[ show edit update destroy ]
 
   def index
-    @volunteers = Volunteer.all
+    @volunteers = Volunteer.page(params[:page]).per(8)
   end
 
   def show

@@ -2,11 +2,11 @@ class CausesController < ApplicationController
   before_action :set_cause, only: %i[ show edit update destroy ]
 
   def index
-    @causes = Cause.all.order(created_at: :desc)
+    @causes = Cause.order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def show
-    @comments = @cause.comments.order(created_at: :desc)
+    @comments = @cause.comments.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def new
