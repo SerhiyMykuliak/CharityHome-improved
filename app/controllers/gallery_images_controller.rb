@@ -2,7 +2,7 @@ class GalleryImagesController < ApplicationController
   before_action :set_gallery_image, only: [:edit, :update, :destroy]
 
   def index 
-    @gallery_images = GalleryImage.all
+    @gallery_images = GalleryImage.page(params[:page]).per(8)
   end 
 
   def new

@@ -1,5 +1,4 @@
 
-
 <%= render 'layouts/page_title', title: @cause.title %>
 
 <div class="container pt-[90px] pb-[40px] mb-[90px] mx-auto">
@@ -49,7 +48,7 @@
         </div>
       </div>
 
-      <turbo-frame id="new_comment_form">
+      <turbo-frame id="new_comment_form" data-turbo-cache="false">
         <%= render 'comments/new_comment_form', cause: @cause %>
       </turbo-frame>
 
@@ -58,6 +57,7 @@
         <%= render partial: "comments/comment", collection: @comments, as: :comment  %>
       </turbo-frame>   
 
+      <%= paginate @comments %>
     </div>
 
     <div class="right-bar">
