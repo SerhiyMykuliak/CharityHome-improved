@@ -37,9 +37,15 @@
       <%= link_to 'Gallery', gallery_images_path, class: "hover:text-[#f14b05] transition-colors duration-300" %>
     </nav>
 
-    <div class="search">
-      <%= image_tag("search.png", class: "w-[22px] h-[22px]") %>
+    <div class="search flex items-center overflow-hidden max-w-[500px] min-w-300px ml-[20px]">
+      <%= form_with url: search_path, method: :get, local: true, html: { class: "flex w-full" } do |form| %>
+        <%= form.text_field :query, value: params[:query], placeholder: "Search...", class: "w-full h-[40px] bg-[#2C353C] text-[#C9C9C9] text-[13px] border-0 outline-none px-[20px]" %>
+        <button type="submit" class="flex flex-shrink-0 items-center justify-center px-3">
+          <%= image_tag("search.png", class: "w-[22px] h-[22px] cursor-pointer", alt: "Пошук") %>
+        </button>
+      <% end %>
     </div>
+
 
   </div>
 </div>

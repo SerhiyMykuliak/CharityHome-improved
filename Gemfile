@@ -58,7 +58,8 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
+  gem "ruby-lsp"
+  
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -79,3 +80,5 @@ gem "tailwindcss-ruby", "~> 4.1"
 gem 'monopay-ruby', '~> 1.1'
 gem 'activestorage-validator', '~> 0.4.0'
 gem 'kaminari'
+gem 'searchkick'
+gem 'elasticsearch', '~> 7'
