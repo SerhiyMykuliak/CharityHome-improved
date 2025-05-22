@@ -1,4 +1,6 @@
 class Cause < ApplicationRecord
+  searchkick
+  
   has_many :comments, dependent: :destroy
   has_many :payments, dependent: :destroy
 

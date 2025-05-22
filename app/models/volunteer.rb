@@ -1,4 +1,6 @@
 class Volunteer < ApplicationRecord
+  searchkick
+  
   has_one_attached :avatar
 
   validates :first_name, presence: true, length: { maximum: 50 }

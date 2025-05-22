@@ -1,0 +1,29 @@
+<%= render 'layouts/page_title', title: "Search: #{truncate(params[:query], length: 30)}" %>
+
+<div class="container pt-[90px] pb-[60px] mx-auto">
+  <div class="flex justify-center items-center py-10">
+    <%= form_with url: search_path, method: :get, local: true, html: { class: "flex w-full max-w-[500px] border border-[#e2e8f0] rounded-lg overflow-hidden shadow-md bg-white" } do |form| %>
+      <%= form.text_field :query, value: params[:query], placeholder: "Search...", class: "w-full h-[50px] bg-white text-gray-800 placeholder-gray-400 px-4 focus:outline-none text-[15px]" %>
+
+      <%= form.submit "Submit", class:"bg-[#f14b05] hover:bg-[#d24300] text-white px-5 text-sm tracking-wide transition-colors duration-300"  %>
+    <% end %>
+  </div>
+  
+  <% if @results.any? %>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <% @results.each do |result| %>
+        <% case result.class.name %>
+          <% when "Cause" %>
+            <%= render partial: "causes/cause", locals: { cause: result } %>
+          <% when "Volunteer" %>
+            <%= render partial: "volunteers/volunteer_card", locals: { volunteer: result } %>
+        <% end %>
+      <% end %>
+    </div>
+  <% elsif params[:query].present? %>
+    <p class="text-center my-10">Nothing found for the query: <%= truncate(params[:query], length: 30)%> </p>
+  <% else %>
+    <p class="text-center my-10">Nothing found</p>
+  <% end %>
+  
+</div>
