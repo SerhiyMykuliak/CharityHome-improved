@@ -4,6 +4,17 @@ Rails.application.configure do
 
   config.hosts << ENV["NGROK_HOST"]
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name: ENV["MAILTRAP_USERNAME"],
+    password:  ENV["MAILTRAP_PASSWORD"],
+    address: 'sandbox.smtp.mailtrap.io',
+    domain: 'sandbox.smtp.mailtrap.io',
+    port: 587,
+    authentication: :plain
+  }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
