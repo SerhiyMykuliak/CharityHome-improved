@@ -1,0 +1,22 @@
+<div style="max-width: 600px; margin: 2rem auto; padding: 2rem; background: #fefefe; border-radius: 1rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
+  <h2 style="font-size: 1.75rem; font-weight: 600; color: #e94e1b; margin-bottom: 1.25rem; border-bottom: 2px solid #f2f2f2; padding-bottom: 0.5rem;">
+    Contact Form Message
+  </h2>
+
+  <p style="margin-bottom: 1rem; font-size: 1rem;">
+    <strong style="display: inline-block; width: 70px; color: #e94e1b;">Name:</strong>
+    <span style="color: #000;"><%= @name %></span>
+  </p>
+
+  <p style="margin-bottom: 1rem; font-size: 1rem;">
+    <strong style="display: inline-block; width: 70px; color: #e94e1b;">Email:</strong>
+    <span style="color: #000;"><%= @email %></span>
+  </p>
+
+  <div style="margin-bottom: 1rem;">
+    <strong style="color: #e94e1b;">Message:</strong>
+    <p style="margin-top: 0.5rem; background: #f9f9f9; padding: 1rem; border-radius: 0.5rem; color: #000; white-space: pre-line;">
+      <%= @message %>
+    </p>
+  </div>
+</div>

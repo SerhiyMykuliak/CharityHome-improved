@@ -40,14 +40,17 @@
       </div>
 
       <div class="pages w-[400px] mb-[50px]">
-        <h3 class="text-xl mb-15 text-white f-roboto font-bold">Contact Form</h3>
+        <%= form_with url: contact_us_path, method: :post, local: true, html: { class: 'pages w-[400px] mb-[50px]' } do |f| %>
+          <h3 class="text-xl mb-15 text-white f-roboto font-bold">Contact Form</h3>
 
-        <input type="text" name="username" placeholder="Full name" class="w-full h-[50px] bg-[#2C353C] text-[#C9C9C9] text-[13px] mb-[10px] border-0 outline-none px-[20px]">
-        <input type="email" name="username" placeholder="Email Address" class="w-full h-[50px] bg-[#2C353C] text-[#C9C9C9] text-[13px] mb-[10px] border-0 outline-none px-[20px]">
+          <%= f.text_field :name, placeholder: "Full name", class: "w-full h-[50px] bg-[#2C353C] text-[#C9C9C9] text-[13px] mb-[10px] border-0 outline-none px-[20px]" %>
 
-        <textarea name="username" placeholder="Your text" class="w-full min-h-[50px] h-[200px] bg-[#2C353C] text-[#C9C9C9] text-[13px] mb-[10px] border-0 outline-none p-[20px] resize-y "> </textarea>
-      
-        <div class="w-full h-[50px] bg-[#eb5310] text-white uppercase text-[13px] border-0 outline-none p-0 leading-[50px] font-bold transition-all duration-300 ease-in-out hover:bg-white hover:text-[#eb5310]">Send</div>
+          <%= f.email_field :email, placeholder: "Email Address", class: "w-full h-[50px] bg-[#2C353C] text-[#C9C9C9] text-[13px] mb-[10px] border-0 outline-none px-[20px]" %>
+
+          <%= f.text_area :message, placeholder: "Your text", class: "w-full min-h-[50px] h-[200px] bg-[#2C353C] text-[#C9C9C9] text-[13px] mb-[10px] border-0 outline-none p-[20px] resize-y" %>
+
+          <%= f.submit "Send", class: "w-full h-[50px] bg-[#eb5310] text-white uppercase text-[13px] border-0 outline-none p-0 leading-[50px] font-bold transition-all duration-300 ease-in-out hover:bg-white hover:text-[#eb5310]" %>
+        <% end %>
       </div>
     </div>
   </div>

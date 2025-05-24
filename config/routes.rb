@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
   post '/webhooks_monopay', to: 'webhooks#monopay', as: :webhooks_monopay
   
+  post '/contact-us', to: 'contacts#create'
 end
