@@ -1,8 +1,11 @@
 class Cause < ApplicationRecord
-  searchkick
+  searchkick unless Rails.env.development?
   
   has_many :comments, dependent: :destroy
   has_many :payments, dependent: :destroy
+
+  has_many :cause_tags, dependent: :destroy
+  has_many :tags, through: :cause_tags
 
   has_one_attached :image
 

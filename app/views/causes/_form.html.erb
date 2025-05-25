@@ -44,6 +44,25 @@
   </div>
 
   <div class="my-5">
+    <%= form.label :tags, "Select tags", class: "block text-sm font-medium text-gray-700 mb-2" %>
+
+    <div class="flex flex-wrap gap-3">
+      <%= form.collection_check_boxes :tag_ids, @tags, :id, :name do |cb| %>
+        <label class="inline-flex items-center px-3 py-2 bg-gray-100 rounded-lg shadow-sm hover:bg-[#F65024] transition cursor-pointer">
+          <%= cb.check_box(class: "hidden peer") %>
+          <span class="peer-checked:text-[#F65024] peer-checked:font-semibold text-gray-700">
+            <%= cb.text %>
+          </span>
+        </label>
+      <% end %>
+    </div>
+
+    <% if cause.errors[:tags].any? %>
+      <p class="text-red-500 text-sm mt-2"><%= cause.errors[:tags].first %></p>
+    <% end %>
+  </div>
+
+  <div class="my-5">
     <%= form.label :goal_amount %>
     <%= form.text_field :goal_amount, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": cause.errors[:goal_amount].none?, "border-red-400 focus:outline-red-600": cause.errors[:goal_amount].any?}] %>
     <% if cause.errors[:goal_amount].any? %>

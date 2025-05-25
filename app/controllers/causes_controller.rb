@@ -11,9 +11,11 @@ class CausesController < ApplicationController
 
   def new
     @cause = Cause.new
+    @tags = Tag.all
   end
 
   def edit
+    @tags = Tag.all
   end
 
   def create
@@ -48,6 +50,6 @@ class CausesController < ApplicationController
     end
 
     def cause_params
-      params.require(:cause).permit(:title, :description, :short_description, :goal_amount, :collected_amount, :status, :start_date, :end_date, :image)
+      params.require(:cause).permit(:title, :description, :short_description, :goal_amount, :collected_amount, :status, :start_date, :end_date, :image, tag_ids: [])
     end
 end
