@@ -2,7 +2,14 @@ class CausesController < ApplicationController
   before_action :set_cause, only: %i[ show edit update destroy ]
 
   def index
-    @causes = Cause.order(created_at: :desc).page(params[:page]).per(6)
+    @causes = Cause.order(created_at: :desc)
+    @tags = Tag.all
+
+    @causes = @causes.where("title ILIKE ?", "%#{params[:title]}%") if params[:title].present?
+    @causes = @causes.where(status: params[:status]) if params[:status].present?
+    @causes = @causes.joins(:tags).where(tags: { id: params[:tag_id] }) if params[:tag_id].present?
+    
+    @causes = @causes.page(params[:page]).per(6)
   end
 
   def show
