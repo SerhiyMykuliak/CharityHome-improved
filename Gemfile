@@ -85,3 +85,5 @@ gem 'activestorage-validator', '~> 0.4.0'
 gem 'kaminari'
 gem 'searchkick'
 gem 'elasticsearch', '~> 7'
+
+gem 'nokogiri', '< 1.18.7'
