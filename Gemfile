@@ -87,3 +87,4 @@ gem 'searchkick'
 gem 'elasticsearch', '~> 7'
 
 gem "nokogiri", "~> 1.18", platforms: :ruby
+gem 'cloudinary', '~> 1.25'
