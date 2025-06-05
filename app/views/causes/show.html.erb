@@ -1,52 +1,46 @@
+
 <%= render 'layouts/page_title', title: @cause.title %>
 
-<div class="container pt-[60px] pb-[40px] mb-[60px] mx-auto px-[15px]">
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-[30px]">
-    
-    <div class="col-span-12 lg:col-span-8">
-      <%= image_tag @cause.image, class: "w-full block rounded-lg" %>
+<div class="container pt-[90px] pb-[40px] mb-[90px] mx-auto">
+  <div class="grid">
+    <div class="col-span-12 px-[15px]">
+      <%= image_tag @cause.image, class: "w-full block" %>
 
-      <div class="content-box mt-[27px] border-b border-[#F1F1F1] mb-[60px] pb-[70px]">
-        <div class="data-box mb-[15px] mr-[25px] flex flex-col items-center justify-center w-[90px] h-[70px] text-white bg-[#EB5310] py-[15px] text-base text-center mx-auto sm:mx-0">
+      <div class="content-box mt-[27px] grid border-b-1 border-[#F1F1F1] mb-[60px] pb-[70px]">
+        <div class="data-box mb-[15px] mr-[25px] flex flex-col col-span-12 leading-4 text-center justify-center w-[90px] h-[70px] text-white bg-[#EB5310] py-[15px] text-base">
           <span class="text-2xl"> <%= @cause.created_at.strftime("%d") %> </span>
           <span class="uppercase"> <%= @cause.created_at.strftime("%b") %> </span>
         </div>
+        
+        <div class="col-span-12">
+          <p class="text-[#9C9C9C] text-sm mb-[16px] leading-[26px]"> <%= @cause.short_description %> </p>
 
-        <p class="text-[#9C9C9C] text-sm mb-[16px] leading-[26px]"> <%= @cause.short_description %> </p>
+          <div class="campaign-summary flex flex-wrap my-[28px] px-[14px] text-sm text-[#9c9c9c] border-1 border-[#e6e6e6]">
+            <div class="campaign-raised py-[14px] w-1/2 flex flex-col">
+              <span class="text-base text-[#F65024] font-bold"> <%= ((@cause.collected_amount / @cause.goal_amount) * 100).round %>% </span>
+              <p>Raised</p>
+            </div>
+            <div class="campaign-sum py-[14px] w-1/2 flex flex-col">
+              <span class="text-base text-[#F65024] font-bold"> $<%= @cause.collected_amount %> </span>
+              <p>donated of <span class="text-base text-[#222222]"> $<%= @cause.goal_amount %> </span> goal</p>
+            </div>
 
-        <div class="campaign-summary flex flex-wrap my-[28px] p-[14px] text-sm text-[#9c9c9c] border border-[#e6e6e6] rounded-md">
-          <div class="w-full sm:w-1/2 py-[14px] flex flex-col items-center sm:items-start">
-            <span class="text-base text-[#F65024] font-bold">
-              <%= ((@cause.collected_amount / @cause.goal_amount) * 100).round %>%
-            </span>
-            <p>Raised</p>
-          </div>
-          <div class="w-full sm:w-1/2 py-[14px] flex flex-col items-center sm:items-start">
-            <span class="text-base text-[#F65024] font-bold">
-              $<%= @cause.collected_amount %>
-            </span>
-            <p>donated of <span class="text-base text-[#222222]"> $<%= @cause.goal_amount %> </span> goal</p>
+            <div class="line h-[1px] w-full bg-[#E6E6E6]"></div>
+
+            <div class="campaign-donors py-[14px] w-1/2 flex flex-col">
+              <p><span class="text-base text-[#F65024] font-bold">  <%= pluralize(@cause.donation_count, "Donation") %> </span> </p>
+            </div>
+            <div class="campaign-time-left py-[14px] w-1/2 flex flex-col">
+              <% if @cause.ended? %>
+                <p>Campaign has ended</p>
+              <% else %>
+                <p>Campaign continues</p>
+              <% end %>
+            </div>
           </div>
 
-          <div class="line h-[1px] w-full bg-[#E6E6E6] my-[10px]"></div>
-
-          <div class="w-full sm:w-1/2 py-[14px] flex flex-col items-center sm:items-start">
-            <p>
-              <span class="text-base text-[#F65024] font-bold">
-                <%= pluralize(@cause.donation_count, "Donation") %>
-              </span>
-            </p>
-          </div>
-          <div class="w-full sm:w-1/2 py-[14px] flex flex-col items-center sm:items-start">
-            <% if @cause.ended? %>
-              <p>Campaign has ended</p>
-            <% else %>
-              <p>Campaign continues</p>
-            <% end %>
-          </div>
+          <p class="text-[#9C9C9C] text-sm mb-[16px] leading-[26px]"> <%= @cause.description %> </p>
         </div>
-
-        <p class="text-[#9C9C9C] text-sm mb-[16px] leading-[26px]"> <%= @cause.description %> </p>
       </div>
 
       <turbo-frame id="new_comment_form" data-turbo-cache="false">
@@ -55,21 +49,19 @@
 
       <h2 class="f-roboto font-bold text-3xl text-[#23282A] mb-[10px]">Comments</h2>
       <turbo-frame id="comments">
-        <%= render partial: "comments/comment", collection: @comments, as: :comment %>
+        <%= render partial: "comments/comment", collection: @comments, as: :comment  %>
       </turbo-frame>   
 
       <%= paginate @comments %>
     </div>
 
-    <div class="col-span-12 lg:col-span-4">
-      <div class="tags flex flex-wrap gap-3 mt-[30px] lg:mt-0">
+    <div class="right-bar">
+      <div class="tags flex gap-3">
         <% @cause.tags.each do |tag| %>
-          <span class="border-2 border-[#2C2C2C] rounded-full px-4 py-1 hover:bg-[#F65024] hover:border-[#F65024] hover:text-white hover:cursor-pointer duration-300">
-            <%= tag.name %>
-          </span>
+          <span class="border-2 border-[#2C2C2C] rounded-full px-4 py-1 hover:bg-[#F65024] hover:border-[#F65024] hover:text-white hover:cursor-pointer duration-300 "> <%= tag.name %> </span>
         <% end %>
       </div>
-    </div>
 
+    </div>
   </div>
 </div>
