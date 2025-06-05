@@ -29,5 +29,4 @@ def comment_params
   params.require(:comment).permit(:username, :email, :content)
 end
 
-
 end
