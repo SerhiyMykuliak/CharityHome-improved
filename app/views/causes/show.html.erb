@@ -4,11 +4,6 @@
 <div class="container pt-[90px] pb-[40px] mb-[90px] mx-auto">
   <div class="grid">
     <div class="col-span-12 px-[15px]">
-
-      <%= link_to "Edit this cause", edit_cause_path(@cause), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-      <%= link_to "Back to causes", causes_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
-      <%= button_to "Destroy this cause", @cause, method: :delete, form_class: "sm:inline-block mt-2 sm:mt-0 sm:ml-2", class: "w-full rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: "Are you sure?" } %>
-
       <%= image_tag @cause.image, class: "w-full block" %>
 
       <div class="content-box mt-[27px] grid border-b-1 border-[#F1F1F1] mb-[60px] pb-[70px]">
