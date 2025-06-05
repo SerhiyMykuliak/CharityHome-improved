@@ -86,4 +86,4 @@ gem 'kaminari'
 gem 'searchkick'
 gem 'elasticsearch', '~> 7'
 
-gem 'nokogiri', '< 1.18.7'
+gem "nokogiri", "~> 1.18", platforms: :ruby

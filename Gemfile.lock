@@ -140,6 +140,7 @@ GEM
       logger
     faraday-net_http (3.4.0)
       net-http (>= 0.5.0)
+    ffi (1.17.2)
     ffi (1.17.2-aarch64-linux-gnu)
     ffi (1.17.2-aarch64-linux-musl)
     ffi (1.17.2-arm-linux-gnu)
@@ -203,6 +204,7 @@ GEM
       benchmark
       logger
     mini_mime (1.1.5)
+    mini_portile2 (2.8.9)
     minitest (5.25.5)
     money (6.19.0)
       i18n (>= 0.6.4, <= 2)
@@ -228,6 +230,9 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.7.4)
+    nokogiri (1.18.6)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     nokogiri (1.18.6-aarch64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.18.6-aarch64-linux-musl)
@@ -390,6 +395,7 @@ PLATFORMS
   arm-linux-gnu
   arm-linux-musl
   arm64-darwin
+  ruby
   x86_64-linux
   x86_64-linux-gnu
   x86_64-linux-musl
@@ -410,7 +416,7 @@ DEPENDENCIES
   jbuilder
   kaminari
   monopay-ruby (~> 1.1)
-  nokogiri (< 1.18.7)
+  nokogiri (~> 1.18)
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.5, >= 7.1.5.1)
