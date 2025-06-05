@@ -79,6 +79,7 @@ test:
 #
 production:
   <<: *default
-  database: charity_app_production
-  username: charity_app
-  password: <%= ENV["CHARITY_APP_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV['DATABASE_URL'] %>
+  pool: 5

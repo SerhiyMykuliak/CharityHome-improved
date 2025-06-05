@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.1.2"
+ruby "3.2.8"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.5", ">= 7.1.5.1"
@@ -85,3 +85,6 @@ gem 'activestorage-validator', '~> 0.4.0'
 gem 'kaminari'
 gem 'searchkick'
 gem 'elasticsearch', '~> 7'
+
+gem "nokogiri", "~> 1.18", platforms: :ruby
+gem 'cloudinary', '~> 1.25'

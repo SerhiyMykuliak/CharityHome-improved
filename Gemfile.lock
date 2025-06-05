@@ -82,6 +82,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    aws_cf_signer (0.1.3)
     base64 (0.1.2)
     benchmark (0.4.0)
     bigdecimal (3.1.9)
@@ -98,6 +99,9 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    cloudinary (1.29.0)
+      aws_cf_signer
+      rest-client (>= 2.0.0)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.3)
     crass (1.0.6)
@@ -140,6 +144,7 @@ GEM
       logger
     faraday-net_http (3.4.0)
       net-http (>= 0.5.0)
+    ffi (1.17.2)
     ffi (1.17.2-aarch64-linux-gnu)
     ffi (1.17.2-aarch64-linux-musl)
     ffi (1.17.2-arm-linux-gnu)
@@ -203,6 +208,7 @@ GEM
       benchmark
       logger
     mini_mime (1.1.5)
+    mini_portile2 (2.8.9)
     minitest (5.25.5)
     money (6.19.0)
       i18n (>= 0.6.4, <= 2)
@@ -228,19 +234,22 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.7.4)
-    nokogiri (1.18.8-aarch64-linux-gnu)
+    nokogiri (1.18.6)
+      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    nokogiri (1.18.8-aarch64-linux-musl)
+    nokogiri (1.18.6-aarch64-linux-gnu)
       racc (~> 1.4)
-    nokogiri (1.18.8-arm-linux-gnu)
+    nokogiri (1.18.6-aarch64-linux-musl)
       racc (~> 1.4)
-    nokogiri (1.18.8-arm-linux-musl)
+    nokogiri (1.18.6-arm-linux-gnu)
       racc (~> 1.4)
-    nokogiri (1.18.8-arm64-darwin)
+    nokogiri (1.18.6-arm-linux-musl)
       racc (~> 1.4)
-    nokogiri (1.18.8-x86_64-linux-gnu)
+    nokogiri (1.18.6-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.18.8-x86_64-linux-musl)
+    nokogiri (1.18.6-x86_64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.6-x86_64-linux-musl)
       racc (~> 1.4)
     pg (1.5.9)
     pp (0.6.2)
@@ -390,6 +399,7 @@ PLATFORMS
   arm-linux-gnu
   arm-linux-musl
   arm64-darwin
+  ruby
   x86_64-linux
   x86_64-linux-gnu
   x86_64-linux-musl
@@ -398,6 +408,7 @@ DEPENDENCIES
   activestorage-validator (~> 0.4.0)
   bootsnap
   capybara
+  cloudinary (~> 1.25)
   database_cleaner-active_record
   debug
   dotenv-rails
@@ -410,6 +421,7 @@ DEPENDENCIES
   jbuilder
   kaminari
   monopay-ruby (~> 1.1)
+  nokogiri (~> 1.18)
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.5, >= 7.1.5.1)
@@ -427,7 +439,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.2.8p263
 
 BUNDLED WITH
    2.5.15
