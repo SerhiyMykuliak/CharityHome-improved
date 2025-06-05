@@ -31,6 +31,7 @@ class CausesController < ApplicationController
     if @cause.save
       redirect_to @cause, notice: "Cause was successfully created." 
     else
+      @tags = Tag.all
       render :new, status: :unprocessable_entity
     end
 
@@ -41,6 +42,7 @@ class CausesController < ApplicationController
     if @cause.update(cause_params)
       redirect_to @cause, notice: "Cause was successfully updated."
     else
+      @tags = Tag.all
       render :edit, status: :unprocessable_entity 
     end
 

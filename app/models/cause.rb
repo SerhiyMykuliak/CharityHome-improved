@@ -1,5 +1,5 @@
 class Cause < ApplicationRecord
-  searchkick unless Rails.env.development?
+  searchkick unless Rails.env.development? || Rails.env.test?
   
   has_many :comments, dependent: :destroy
   has_many :payments, dependent: :destroy
